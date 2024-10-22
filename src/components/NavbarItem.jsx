@@ -9,7 +9,7 @@ function NavbarItem({ title, params }) {
 
   return (
     <div>
-      <Link className={`hover:text-amber-600 font-semibold ${genre === params && "underline underline-offset-8 decoration-4 decoration-amber-500 rounded-lg"}`} href={`/genre=${params}`}>
+      <Link className={`hover:text-amber-600 font-semibold ${genre === params && "underline underline-offset-8 decoration-4 decoration-amber-500 rounded-lg"}`} href={`/?genre=${params}`}>
         {title}
       </Link>
     </div>
