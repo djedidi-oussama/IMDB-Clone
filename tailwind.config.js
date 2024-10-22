@@ -7,6 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -14,4 +15,6 @@ module.exports = {
     },
   },
   plugins: [],
+
+  darkMode: "class",
 };
