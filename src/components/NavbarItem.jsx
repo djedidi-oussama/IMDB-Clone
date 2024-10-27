@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 function NavbarItem({ title, params }) {
@@ -9,11 +9,24 @@ function NavbarItem({ title, params }) {
 
   return (
     <div>
-      <Link className={`hover:text-amber-600 font-semibold ${genre === params && "underline underline-offset-8 decoration-4 decoration-amber-500 rounded-lg"}`} href={`/?genre=${params}`}>
+      <Link
+        className={`hover:text-amber-600 font-semibold ${
+          genre === params &&
+          "underline underline-offset-8 decoration-4 decoration-amber-500 rounded-lg"
+        }`}
+        href={`/?genre=${params}`}
+      >
         {title}
       </Link>
     </div>
   );
 }
 
-export default NavbarItem; 
+// Wrapping NavbarItem in Suspense
+export default function SuspenseNavbarItem(props) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <NavbarItem {...props} />
+    </Suspense>
+  );
+}
